@@ -4,7 +4,13 @@
 # Setup
 # 
 
-# In[ ]:
+# In[1]:
+
+
+pip install --upgrade pip
+
+
+# In[2]:
 
 
 get_ipython().system('pip install numpy')
@@ -12,9 +18,14 @@ get_ipython().system('pip install pypiwin32')
 get_ipython().system('pip install pandas')
 get_ipython().system('pip install matplotlib')
 get_ipython().system('pip install dss-python')
+get_ipython().run_line_magic('pip', 'install numpy')
+get_ipython().run_line_magic('pip', 'install pypiwin32')
+get_ipython().run_line_magic('pip', 'install pandas')
+get_ipython().run_line_magic('pip', 'install matplotlib')
+get_ipython().run_line_magic('pip', 'install dss-python')
 
 
-# In[ ]:
+# In[3]:
 
 
 import numpy as np    #np, mpl and pd serve as a nicknames
@@ -24,7 +35,7 @@ import pandas as pd
 import os
 import dss #OpenDss Module
 
-os.chdir('C:\\Users\\amy\\Desktop\\37Bus\\')   # force going to the working folder (ADJUST FOR YOUR OWN PATH!)
+os.chdir('C:\\Users\\brun\\Desktop\\aff\\bla\\')   # force going to the working folder (ADJUST FOR YOUR OWN PATH!)
 mydir=os.getcwd()                          # mydir stores the working path
 
 dss_engine = dss.DSS
@@ -61,60 +72,7 @@ ControlQueue = dss_engine.ActiveCircuit.CtrlQueue
 # 
 # Ordem: reset, cargas, solve, potência e perdas, potência das cargas, tensão, trafos, linhas, subestação.
 
-# In[ ]:
-
-
-import pprint
-data = {'name': 'John', 'age': 30, 'children': [{'name': 'Jane', 'age': 10}, {'name': 'Doe', 'age': 8}]}
-pprint.pprint(data)
-
-
-# In[ ]:
-
-
-def compile():
-    DSSText.Command = 'Compile ' + mydir + '/ieee37.dss'
-
-    Elenames = DSSCircuit.AllElementNames
-    Loadnames = DSSCircuit.Loads.AllNames
-    Busnames = DSSCircuit.AllBusNames
-    Trafonames = DSSCircuit.Transformers.AllNames
-    Linenames = DSSCircuit.Lines.AllNames
-
-def  get_elements():
-    compile()
-# Get all element names and store in variant array of strings
-Elenames = DSSCircuit.AllElementNames
-print('List of elements')
-print ('Total:' +  str(len(Elenames)))
-print(Elenames)
-
-# Get all load names and store in variant array of strings
-Loadnames = DSSCircuit.Loads.AllNames
-print('List of Loads')
-print ('Total:' +  str(len(Loadnames)))
-print(Loadnames)
-
-# Get all bus names and store in variant array of strings
-Busnames = DSSCircuit.AllBusNames
-print('List of Buses')
-print ('Total:' +  str(len(Busnames)))
-print(Busnames)
-
-# Get all transformers names and store in variant array of strings
-Trafonames = DSSCircuit.Transformers.AllNames
-print('List of Transformers')
-print ('Total:' +  str(len(Trafonames)))
-print(Trafonames)
-
-# Get all line names and store in variant array of strings
-Linenames = DSSCircuit.Lines.AllNames
-print('List of Lines')
-print ('Total:' +  str(len(Linenames)))
-print(Linenames)
-
-
-# In[ ]:
+# In[11]:
 
 
 def compile():
@@ -128,6 +86,27 @@ def get_all_elements():
     Linenames = DSSCircuit.Lines.AllNames
     Pvnames = DSSCircuit.PVSystems.AllNames
     Storagenames = DSSCircuit.Storages.AllNames
+    print('List of elements')
+    print ('Total:' +  str(len(Elenames)))
+    print(Elenames)
+    print('List of Loads')
+    print ('Total:' +  str(len(Loadnames)))
+    print(Loadnames)
+    print('List of Buses')
+    print ('Total:' +  str(len(Busnames)))
+    print(Busnames)
+    print('List of Transformers')
+    print ('Total:' +  str(len(Trafonames)))
+    print(Trafonames)
+    print('List of Lines')
+    print ('Total:' +  str(len(Linenames)))
+    print(Linenames)
+    print('List of PV Systems')
+    print ('Total:' +  str(len(Pvnames)))
+    print(Pvnames)
+    print('List of Storage Systems')
+    print ('Total:' +  str(len(Storagenames)))
+    print(Storagenames)
 
     return Elenames, Loadnames, Busnames, Trafonames, Linenames, Pvnames, Storagenames
 
@@ -135,13 +114,25 @@ def get_all_elements():
 # In[ ]:
 
 
+
+
+
+# In[12]:
+
+
 compile()
 
 
-# In[ ]:
+# In[23]:
 
 
-get_elements()
+print(Loadnames)
+
+
+# In[24]:
+
+
+get_all_elements()
 
 
 # In[ ]:
@@ -174,13 +165,13 @@ def preparar_cargas():
             DSSCircuit.ActiveElement.Properties('daily').Val = 'resd_loadshape' 
 
 
-# In[ ]:
+# In[16]:
 
 
 preparar_cargas()
 
 
-# In[ ]:
+# In[17]:
 
 
 def loadmult(load_factor):
@@ -188,7 +179,7 @@ def loadmult(load_factor):
     print(f'Load multiplier set to {load_factor}')
 
 
-# In[ ]:
+# In[18]:
 
 
 def configure_power_flow(simulation_time, Loadnames, Linenames, DSSCircuit, DSSSolution, DSSText):
@@ -259,7 +250,7 @@ def configure_power_flow(simulation_time, Loadnames, Linenames, DSSCircuit, DSSS
             Line_Max_Amp, PV_kW, Storage_kW)
 
 
-# In[ ]:
+# In[19]:
 
 
 configure_power_flow(simulation_time=24, Loadnames=Loadnames, Linenames=Linenames, DSSCircuit=DSSCircuit, DSSSolution=DSSSolution, DSSText=DSSText)
@@ -826,4 +817,10 @@ def undernovervoltage():
 
 
 undernovervoltage()
+
+
+# In[ ]:
+
+
+
 
