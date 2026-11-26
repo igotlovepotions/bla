@@ -1,6 +1,6 @@
-! Cenario 1: Caso base (Loadmult=1.0, sem PV)
+! ####Simulação 1: PV false, loadmult=1,
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=1.0
 
@@ -25,9 +25,9 @@ Export Generators generators.csv
 Export monitors all
 
 
-! Cenario 2: Carga leve (Loadmult=0.2, sem PV)
+!C####Simulação 2: PV false, loadmult=0.2,
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=0.2
 
@@ -49,9 +49,9 @@ Export Generators generators.csv
 Export monitors all
 
 
-! Cenario 3: Caso base + 8 PV (Loadmult=1.0)
+! ####Simulação 3: PV true,  loadmult=1,
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=1.0
 
@@ -104,9 +104,10 @@ Export Generators generators.csv
 Export monitors all
 
 
-! Cenario 4: Carga leve + 8 PV (Loadmult=0.2)
+!####Simulação 4: PV true,  loadmult=0.2,
+
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=0.2
 
@@ -159,9 +160,10 @@ Export Generators generators.csv
 Export monitors all
 
 
-! Cenario 5: Caso base + 8 PV com potencia elevada (pmpp=400, kva=250)
+! ####Simulação 5: PV true,  loadmult=1,   pmpp=3000, kva=3000
+
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=1.0
 
@@ -214,9 +216,10 @@ Export Generators generators.csv
 Export monitors all
 
 
-! Cenario 6: Caso base + 8 PV + Storage distribuido
+! ####Simulação 6: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido
+
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=1.0
 
@@ -294,9 +297,133 @@ Export Generators generators.csv
 Export monitors all
 
 
-! Cenario 7: Caso base + 8 PV + Storage centralizado
+!####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\rede_base.dss
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
+
+Set Loadmult=1.0
+
+New XYcurve.PvsT    npts=4  xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
+New XYcurve.Effic   npts=4  xarray=[.1 .2 .4 1]   yarray=[0.86 .9 .93 .97]
+New loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
+New Tshape.Temp     npts=24 interval=1 temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
+
+New PVSystem.PV_1 phases=3 bus1=728.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_2 phases=3 bus1=733.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_3 phases=3 bus1=737.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_4 phases=3 bus1=740.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_5 phases=3 bus1=718.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_6 phases=3 bus1=720.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_7 phases=3 bus1=722.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_8 phases=3 bus1=742.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+
+New Monitor.pv3_potencia  element=PVSystem.PV_3 terminal=1 mode=1
+New Monitor.pv3_variables element=PVSystem.PV_3 terminal=1 mode=3
+New Monitor.pv4_potencia  element=PVSystem.PV_4 terminal=1 mode=1
+New Monitor.pv4_variables element=PVSystem.PV_4 terminal=1 mode=3
+New Monitor.pv5_potencia  element=PVSystem.PV_5 terminal=1 mode=1
+New Monitor.pv5_variables element=PVSystem.PV_5 terminal=1 mode=3
+New Monitor.pv6_potencia  element=PVSystem.PV_6 terminal=1 mode=1
+New Monitor.pv6_variables element=PVSystem.PV_6 terminal=1 mode=3
+New Monitor.pv7_potencia  element=PVSystem.PV_7 terminal=1 mode=1
+New Monitor.pv7_variables element=PVSystem.PV_7 terminal=1 mode=3
+New Monitor.pv8_potencia  element=PVSystem.PV_8 terminal=1 mode=1
+New Monitor.pv8_variables element=PVSystem.PV_8 terminal=1 mode=3
+
+New LoadShape.dispatch_shape interval=1 npts=24 mult=(0 0 0 0 0 0 0 0 0 0 -.019 -.091 -.149 -.142 -.151 -.134 0 0 0 0 0 0 0 0)
+New XYCurve.Eff              npts=4     xarray=[.1 .2 .4 1.0] yarray=[.86 .9 .93 .97]
+
+New Storage.Storage_CENTRAL phases=3 bus1=708 kv=4.8 pf=1 kWrated=2467 kWhrated=24670 %stored=20 %reserve=20 effcurve=Eff state=idling conn=delta dispmode=follow model=1 daily=dispatch_shape
+
+New Monitor.Storage_potencia  element=Storage.Storage_CENTRAL terminal=1 mode=1
+New Monitor.Storage_variables element=Storage.Storage_CENTRAL terminal=1 mode=3
+
+Set DataPath=C:\Users\brun\Desktop\aff\bla\results\7
+Set mode=daily
+Set number=24
+Set Stepsize=1h
+Set DemandInterval=true
+Set overloadreport=true
+Set voltexceptionreport=true
+Set DIVerbose=true
+Solve
+CloseDI
+
+Export Voltages voltages.csv
+Export Overloads overloads.csv
+Export Losses losses.csv
+Export Generators generators.csv
+Export monitors all
+
+Clear
+
+!####Simulação 8: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 1
+
+Clear
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
+
+Set Loadmult=1.0
+
+New XYcurve.PvsT    npts=4  xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
+New XYcurve.Effic   npts=4  xarray=[.1 .2 .4 1]   yarray=[0.86 .9 .93 .97]
+New loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
+New Tshape.Temp     npts=24 interval=1 temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
+
+New PVSystem.PV_1 phases=3 bus1=728.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_2 phases=3 bus1=733.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_3 phases=3 bus1=737.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_4 phases=3 bus1=740.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_5 phases=3 bus1=718.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_6 phases=3 bus1=720.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_7 phases=3 bus1=722.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_8 phases=3 bus1=742.1.2.3 kv=4.8 conn=delta irrad=1.0 pmpp=303 kva=345 temperature=25 pf=1 %cutin=0.05 %cutout=0.05 effcurve=Effic P-TCurve=PvsT Daily=Irrad Tdaily=Temp
+
+New Monitor.pv3_potencia  element=PVSystem.PV_3 terminal=1 mode=1
+New Monitor.pv3_variables element=PVSystem.PV_3 terminal=1 mode=3
+New Monitor.pv4_potencia  element=PVSystem.PV_4 terminal=1 mode=1
+New Monitor.pv4_variables element=PVSystem.PV_4 terminal=1 mode=3
+New Monitor.pv5_potencia  element=PVSystem.PV_5 terminal=1 mode=1
+New Monitor.pv5_variables element=PVSystem.PV_5 terminal=1 mode=3
+New Monitor.pv6_potencia  element=PVSystem.PV_6 terminal=1 mode=1
+New Monitor.pv6_variables element=PVSystem.PV_6 terminal=1 mode=3
+New Monitor.pv7_potencia  element=PVSystem.PV_7 terminal=1 mode=1
+New Monitor.pv7_variables element=PVSystem.PV_7 terminal=1 mode=3
+New Monitor.pv8_potencia  element=PVSystem.PV_8 terminal=1 mode=1
+New Monitor.pv8_variables element=PVSystem.PV_8 terminal=1 mode=3
+
+New LoadShape.dispatch_shape interval=1 npts=24 mult=(0 0 0 0 0 0 0 0 0 0 -.019 -.091 -.149 -.142 -.151 -.134 0 0 0 0 0 0 0 0)
+New XYCurve.Eff              npts=4     xarray=[.1 .2 .4 1.0] yarray=[.86 .9 .93 .97]
+
+New Storage.Storage_CENTRAL phases=3 bus1=708 kv=4.8 pf=1 kWrated=2467 kWhrated=24670 %stored=20 %reserve=20 effcurve=Eff state=idling conn=delta dispmode=follow model=1 daily=dispatch_shape
+
+New Monitor.Storage_potencia  element=Storage.Storage_CENTRAL terminal=1 mode=1
+New Monitor.Storage_variables element=Storage.Storage_CENTRAL terminal=1 mode=3
+
+Set DataPath=C:\Users\brun\Desktop\aff\bla\results\7
+Set mode=daily
+Set number=24
+Set Stepsize=1h
+Set DemandInterval=true
+Set overloadreport=true
+Set voltexceptionreport=true
+Set DIVerbose=true
+Solve
+CloseDI
+
+Export Voltages voltages.csv
+Export Overloads overloads.csv
+Export Losses losses.csv
+Export Generators generators.csv
+Export monitors all
+
+Clear
+
+
+!####Simulação 9: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 2
+
+
+Clear
+Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
 
 Set Loadmult=1.0
 
