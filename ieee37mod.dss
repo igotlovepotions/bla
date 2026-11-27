@@ -1,5 +1,5 @@
 Set DefaultBaseFrequency=60
-Set DataPath=C:\Users\amy\Desktop\37Bus\
+!Set DataPath=C:\Users\brun\Desktop\aff\bla
 
 New object=circuit.ieee37
 ~ basekv=230 pu=1.00 MVAsc3=200000 MVAsc1=210000
