@@ -1,7 +1,7 @@
 ! ####Simulação 1: PV false, loadmult=1,
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
+ 
 
 ! ####Simulação 1: PV false, loadmult=1,
 Set Loadmult=1.0
@@ -10,7 +10,7 @@ New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
 New Monitor.L1_VI       element=Line.L1 terminal=1 mode=0
 ! ####Simulação 1: PV false, loadmult=1,
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\1
-!Set DataPath= C:\Users\aptis\downloads\bla\results\1
+ !1
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -30,8 +30,7 @@ Export monitors all
 
 !C####Simulação 2: PV false, loadmult=0.2,
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 !C####Simulação 2: PV false, loadmult=0.2,
 
@@ -41,7 +40,7 @@ New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
 New Monitor.L1_VI       element=Line.L1 terminal=1 mode=0
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\2
-!Set DataPath= C:\Users\aptis\downloads\bla\results\2
+ !2
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -63,8 +62,7 @@ Export monitors all
 
 ! ####Simulação 3: PV true,  loadmult=1,
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 ! ####Simulação 3: PV true,  loadmult=1,
 
@@ -106,7 +104,7 @@ New Monitor.pv8_variables element=PVSystem.PV_8 terminal=1 mode=3
 ! ####Simulação 3: PV true,  loadmult=1,
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\3
-!Set DataPath= C:\Users\aptis\downloads\bla\results\3
+ !3
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -129,8 +127,7 @@ Export monitors all
 !####Simulação 4: PV true,  loadmult=0.2,
 
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 !####Simulação 4: PV true,  loadmult=0.2,
 
@@ -172,7 +169,7 @@ New Monitor.pv8_variables element=PVSystem.PV_8 terminal=1 mode=3
 !####Simulação 4: PV true,  loadmult=0.2,
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\4
-!Set DataPath= C:\Users\aptis\downloads\bla\results\4
+ !4
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -195,8 +192,7 @@ Export monitors all
 ! ####Simulação 5: PV true,  loadmult=1,   pmpp=3000, kva=3000
 
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 ! ####Simulação 5: PV true,  loadmult=1,   pmpp=3000, kva=3000
 
@@ -240,7 +236,7 @@ New Monitor.pv8_variables element=PVSystem.PV_8 terminal=1 mode=3
 ! ####Simulação 5: PV true,  loadmult=1,   pmpp=3000, kva=3000
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\5
-!Set DataPath= C:\Users\aptis\downloads\bla\results\5
+ !5
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -262,8 +258,7 @@ Export monitors all
 ! ####Simulação 5.1: PV true,  loadmult=1,   pmpp=3000, kva=3000
 
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 ! ####Simulação 5.1: PV true,  loadmult=1,   pmpp=3000, kva=3000
 
@@ -284,7 +279,7 @@ New Monitor.pvC_variables element=PVSystem.PV_C terminal=1 mode=3
 ! ####Simulação 5.1: PV true,  loadmult=1,   pmpp=3000, kva=3000
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\5.1
-!Set DataPath= C:\Users\aptis\downloads\bla\results\5.1
+ !5.1
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -304,8 +299,7 @@ Export monitors all
 ! ####Simulação 6: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido
 
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 ! ####Simulação 6: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido
 
@@ -379,7 +373,7 @@ New Monitor.Storage8_variables element=Storage.Storage8 terminal=1 mode=3
 ! ####Simulação 6: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\6
-!Set DataPath= C:\Users\aptis\downloads\bla\results\6
+ !6
 Set mode=daily
 Set number=24
 Set Stepsize=1h
@@ -402,8 +396,7 @@ Export monitors all
 
 !####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 !####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
 
@@ -457,7 +450,7 @@ New Monitor.Storage_variables element=Storage.Storage_CENTRAL terminal=1 mode=3
 !####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\7
-!Set DataPath= C:\Users\aptis\downloads\bla\results\7
+ !7
 
 ! 1
 New InvControl.StoCtrl DERList=[PVSystem.PV_1 Storage.Storage_CENTRAL PVSystem.PV_2  PVSystem.PV_3 S PVSystem.PV_4 PVSystem.PV_5 PVSystem.PV_6  PVSystem.PV_7  PVSystem.PV_8] mode=GFM
@@ -495,8 +488,7 @@ Clear
 !####Simulação 8: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 1
 
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 !####Simulação 8: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 1
 
@@ -607,8 +599,7 @@ Clear
 
 
 Clear
-Redirect C:\Users\brun\Desktop\aff\bla\ieee37mod.dss
-!Redirect C:\Users\aptis\downloads\bla\ieee37mod.dss
+Redirect  "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
 
 !####Simulação 9: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 2
 
@@ -694,7 +685,7 @@ Edit Storage.Storage7 State=Discharging ControlMode=GFM
 Edit Storage.Storage8 State=Discharging ControlMode=GFM
 
 Set DataPath= C:\Users\brun\Desktop\aff\bla\results\9
-!Set DataPath= C:\Users\aptis\downloads\bla\results\9
+ !9
 Set mode=daily
 Set number=24
 Set Stepsize=1h
