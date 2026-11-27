@@ -1,9 +1,12 @@
 ! ####Simulação 1: PV false, loadmult=1,
 Clear
-Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
- 
+Set DataPath="C:\Users\brun\Desktop\aff\bla"
 
+Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 ! ####Simulação 1: PV false, loadmult=1,
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 ! ####Simulação 1: PV false, loadmult=1,
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
@@ -31,9 +34,10 @@ Export monitors all
 !C####Simulação 2: PV false, loadmult=0.2,
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 !C####Simulação 2: PV false, loadmult=0.2,
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=0.2
 !C####Simulação 2: PV false, loadmult=0.2,
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
@@ -63,9 +67,10 @@ Export monitors all
 ! ####Simulação 3: PV true,  loadmult=1,
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 ! ####Simulação 3: PV true,  loadmult=1,
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 ! ####Simulação 3: PV true,  loadmult=1,
 
@@ -128,9 +133,10 @@ Export monitors all
 
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 !####Simulação 4: PV true,  loadmult=0.2,
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=0.2
 !####Simulação 4: PV true,  loadmult=0.2,
 
@@ -193,9 +199,10 @@ Export monitors all
 
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 ! ####Simulação 5: PV true,  loadmult=1,   pmpp=3000, kva=3000
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 ! ####Simulação 5: PV true,  loadmult=1,   pmpp=3000, kva=3000
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
@@ -259,9 +266,10 @@ Export monitors all
 
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 ! ####Simulação 5.1: PV true,  loadmult=1,   pmpp=3000, kva=3000
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 ! ####Simulação 5.1: PV true,  loadmult=1,   pmpp=3000, kva=3000
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
@@ -300,9 +308,10 @@ Export monitors all
 
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 ! ####Simulação 6: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 ! ####Simulação 6: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage DistribuidoNew Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
 New Monitor.L1_VI       element=Line.L1 terminal=1 mode=0
@@ -397,9 +406,10 @@ Export monitors all
 !####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 !####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 !####Simulação 7: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Central
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
@@ -489,9 +499,10 @@ Clear
 
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 !####Simulação 8: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 1
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 !####Simulação 8: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 1
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
@@ -600,9 +611,10 @@ Clear
 
 Clear
 Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
-
+New Monitor.V799 element=Transformer.SubXF terminal=2 mode=0
 !####Simulação 9: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 2
-
+Set normvminpu=0.93
+Set normvmaxpu=1.05
 Set Loadmult=1.0
 !####Simulação 9: PV true,  loadmult=1,   pmpp=3000, kva=3000, Storage Distribuido, Ilhamento L27, situacao 2
 New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
