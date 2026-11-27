@@ -1,7 +1,6 @@
 Set DefaultBaseFrequency=60
 
-New object=circuit.ieee37
-~ basekv=230 pu=1.00 MVAsc3=200000 MVAsc1=210000
+New object=circuit.ieee37 basekv=230 pu=1.00 MVAsc3=200000 MVAsc1=210000
 
 Redirect "C:\Users\brun\Desktop\aff\bla\IEEELineCodes.DSS"
 
@@ -12,8 +11,6 @@ New Transformer.SubXF Phases=3 Windings=2 Xhl=8
 New Transformer.XFM1  Phases=3 Windings=2 Xhl=1.81
 ~ wdg=1 bus=709       conn=Delta kv=4.80  kva=500    %r=0.045
 ~ wdg=2 bus=775       conn=Delta kv=0.48  kva=500    %r=0.045
-
-!Redirect IEEELineCodes.DSS
 
 New Line.L1     Phases=3 Bus1=701.1.2.3  Bus2=702.1.2.3  LineCode=722  Length=0.96
 New Line.L2     Phases=3 Bus1=702.1.2.3  Bus2=705.1.2.3  LineCode=724  Length=0.4
@@ -93,7 +90,7 @@ New Load.S744a      Bus1=744.1.2 Phases=1 Conn=Delta Model=1 kV=  4.800 kW=  42.
 
 Set VoltageBases = "230,4.8,0.48"
 CalcVoltageBases
-BusCoords IEEE37_BusXY.csv
+BusCoords "C:\Users\brun\Desktop\aff\bla\IEEE37_BusXY.csv"
 
 Set maxiterations=100
 Set normvminpu=0.93

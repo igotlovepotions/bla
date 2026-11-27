@@ -1,0 +1,13 @@
+Clear
+Redirect "C:\Users\brun\Desktop\aff\bla\ieee37mod.dss"
+
+Set Loadmult=1.0
+New Monitor.L1_potencia element=Line.L1 terminal=1 mode=1
+New Monitor.L1_VI element=Line.L1 terminal=1 mode=0
+
+Set DataPath="C:\Users\brun\Desktop\aff\bla\results\1"
+Set mode=daily
+Set number=24
+Set Stepsize=1h
+Solve
+Export Voltages voltages.csv
