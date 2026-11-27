@@ -1,0 +1,46 @@
+Clear
+Set DefaultBaseFrequency=60
+Set DataPath=C:\Users\amy\projects\opendss\trab
+
+Redirect ieee37.dss
+Redirect pvsystem.dss
+
+Set Loadmult=1
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+New Monitor.line_pv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
+New Monitor.line_pv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+
+Set mode=snap
+Solve
+Sample
+Set DataPath=C:\Users\amy\projects\opendss\trab/resultados/pv_peak
+
+Export Voltages voltages.csv
+Export Overloads overloads.csv
+
+export monitors all
+Export monitor line_pv_peak_L1_potencia
+Export monitor line_pv_peak_L1_VI
+
+
+export monitor pv1_variables
+export monitor pv2_variables
+export monitor pv3_variables
+export monitor pv4_variables
+export monitor pv5_variables
+export monitor pv6_variables
+export monitor pv7_variables
+export monitor pv8_variables
+
+
+export monitor pv1_potencia
+export monitor pv2_potencia
+export monitor pv3_potencia
+export monitor pv4_potencia
+export monitor pv5_potencia
+export monitor pv6_potencia
+export monitor pv7_potencia
+export monitor pv8_potencia

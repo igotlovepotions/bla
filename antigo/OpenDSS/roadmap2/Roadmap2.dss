@@ -1,0 +1,81 @@
+Clear
+Set DefaultBaseFrequency=60
+set datapath=C:\Users\brun\Desktop\OpenDSS\roadmap2\
+
+! 5. Fonte / equivalente da transmissão
+New Circuit.circuit_roadmap2
+~ bus1=A
+~ phases=3
+~ basekv=132
+~ pu=1
+
+! 6. Transformador da subestação
+New Transformer.Trafo1
+~ phases=3
+~ windings=2
+~ buses=[A B]
+~ conns=[wye wye]
+~ kvs=[132 33]
+~ kvas=[30000 30000]
+~ xhl=12.5
+~ %r=0
+
+! 7. Linecode
+New LineCode.ABC
+~ nphases=3
+~ R1=2.13444
+~ X1=1.554003
+~ units=km
+
+! 8. Linha B-C
+New Line.LineBC
+~ phases=3
+~ bus1=B
+~ bus2=C
+~ linecode=ABC
+~ length=1
+~ units=km
+
+! 9. Carga em C
+New Load.loadC
+~ phases=3
+~ bus1=C
+~ kv=33
+~ conn=wye
+~ kw=5000
+~ kvar=1640
+~ model=1
+
+! 13. Monitores
+New Monitor.Trafo1_Power
+~ element=Transformer.Trafo1
+~ terminal=1
+~ mode=1
+~ ppolar=no
+
+New Monitor.Trafo1_VI
+~ element=Transformer.Trafo1
+~ terminal=2
+~ mode=0
+
+! 15. Medidor
+New EnergyMeter.Grid
+~ element=Transformer.Trafo1
+~ terminal=1
+
+! 10. Fluxo de potência
+Set controlmode=static
+Set mode=snapshot
+Solve
+
+! Exportar monitores
+Monitor.Trafo1_Power.Action=Take
+Monitor.Trafo1_VI.Action=Take
+
+Export Monitors Trafo1_Power
+Export Monitors Trafo1_VI
+
+! Exportar medidor
+EnergyMeter.Grid.Action=Take
+
+Export Meters

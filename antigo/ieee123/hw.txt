@@ -1,0 +1,1 @@
+No IEEE 123 barras, foram simuladas 24 horas com a rede conectada, uma falta que isola a microrrede atrás da chave 5 e o retorno da rede. No ilhamento, a bateria grid-forming manteve a tensão em 1 pu e cobriu o déficit de carga e depois absorveu o excesso de PV, gastando só 335 kWh dos 6000 kWh. Ao religar a rede voltou ao normal.

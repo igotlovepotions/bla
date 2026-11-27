@@ -1,0 +1,55 @@
+Clear
+Set DefaultBaseFrequency=60
+Set DataPath=C:\Users\amy\projects\opendss\trab
+Redirect ieee37.dss
+Redirect pvsystem.dss
+
+
+!Solve Loadmult=0.5
+Set Loadmult=0.2
+
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+new monitor.line_pv_loadmult_potencia element=Line.L1 terminal=1 mode=1
+new monitor.line_pv_loadmult_VI element=Line.L1 terminal=1 mode=0
+!new monitor.line_pv_loadmult_variables element=Line.L1 terminal=1 mode=3
+
+Set DataPath=C:\Users\amy\projects\opendss\trab\resultados\pv_loadmult
+
+
+set mode=daily
+set number=24
+Set Stepsize=1h
+
+!set DemandInterval=true
+!set overloadreport=true
+!set voltexceptionreport=true
+!set DIVerbose=true
+solve
+!closeDI
+
+
+Export Voltages pv_loadmult_voltages.csv
+Export Overloads pv_loadmult_overloads.csv
+export monitors all
+
+export monitor pv1_variables
+export monitor pv2_variables
+export monitor pv3_variables
+export monitor pv4_variables
+export monitor pv5_variables
+export monitor pv6_variables
+export monitor pv7_variables
+export monitor pv8_variables
+
+
+export monitor pv1_potencia
+export monitor pv2_potencia
+export monitor pv3_potencia
+export monitor pv4_potencia
+export monitor pv5_potencia
+export monitor pv6_potencia
+export monitor pv7_potencia
+export monitor pv8_potencia

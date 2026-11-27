@@ -1,0 +1,10 @@
+
+BUSES AND NODES IN ACTIVE CIRCUIT: grid
+
+                                   Coord                                 Number of     Nodes
+  Bus         Base kV             (x, y)                      Keep?       Nodes        connected ...
+
+"a"          0.220          (           NA,            NA )     No           3          1    2    3 
+"b"          0.220          (           NA,            NA )     No           3          1    2    3 
+"c"          0.220          (           NA,            NA )     No           3          1    2    3 
+"trafo_pv"   0.480          (           NA,            NA )     No           3          1    2    3 
